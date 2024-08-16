@@ -27,7 +27,7 @@ def get_channel_info(channel_id):
     )
     response=request.execute()
 
-    for i in response['items']:  
+    for i in response['items']:     
         data=dict(Channel_Name=i["snippet"]["title"],
                   Channel_Id=i["id"],
                   Subscribers=i["statistics"]["subscriberCount"],
