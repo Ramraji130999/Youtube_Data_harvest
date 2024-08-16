@@ -134,11 +134,11 @@ def channel_details(channel_id):
 
 #channels table creation
 def channels_table(channel_name_s):
-    mydb=psycopg2.connect(host="localhost",
-                        user="postgres",
-                        password="vigneshd",
-                        database="youtube_data",
-                        port="5432")
+    mydb = psycopg2.connect(host="localhost",
+                            user="postgres",
+                            password="Ramraji",
+                            database="youtube_data",
+                            port="5432")
     cursor=mydb.cursor()
 
     try:
