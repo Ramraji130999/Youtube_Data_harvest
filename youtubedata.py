@@ -26,6 +26,7 @@ def get_channel_info(channel_id):
         id=channel_id
     )
     response=request.execute()
+    
 
     for i in response['items']:     
         data=dict(Channel_Name=i["snippet"]["title"],
@@ -484,7 +485,14 @@ if st.button("collect and store data"):
 
     else:
          insert=channel_details("channel_id")
-         st.sucess(insert)   
+         st.sucess(insert)  
+
+    all_channels=[]
+    db=client["Youtube_data"]
+    coll1=db["channel_details"]
+    for ch_data in coll1.find({},{"_id":0,"channel_information":1}):
+        all_channels.append(ch_data["channel_information"]["Channel_Name"])
+     
 if st.button("Migrate to SQL"):
     Table=tables() 
     st.success(Table)
