@@ -487,13 +487,13 @@ if st.button("collect and store data"):
          insert=channel_details("channel_id")
          st.sucess(insert)  
 
-    all_channels=[]
-    db=client["Youtube_data"]
-    coll1=db["channel_details"]
-    for ch_data in coll1.find({},{"_id":0,"channel_information":1}):
-        all_channels.append(ch_data["channel_information"]["Channel_Name"])
+all_channels=[]
+db=client["Youtube_data"]
+coll1=db["channel_details"]
+for ch_data in coll1.find({},{"_id":0,"channel_information":1}):
+    all_channels.append(ch_data["channel_information"]["Channel_Name"])
 
-    unique_channel=st.select_box("select the channel",all_channels)    
+unique_channel=st.select_box("select the channel",all_channels)    
      
 if st.button("Migrate to SQL"):
     Table=tables() 
